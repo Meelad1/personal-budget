@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A personal budget app that helps you manage your income, track expenses, and plan for financial goals.">
+  <title>Personal Budget - Manage Your Expenses</title>
+</head>
+<body>
+  <!-- Header with role attribute for improved accessibility -->
+  <header role="banner">
+    <h1>Personal Budget App</h1>
+    <h2>Track Your Income and Expenses</h2>
+  </header>
+
+  <!-- Navigation with role attribute and aria-label for screen readers -->
+  <nav role="navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main content area with role attribute -->
+  <main role="main">
+    <!-- Section 1: Welcome Message -->
+    <section id="home">
+      <h3>Welcome to the Personal Budget App</h3>
+      <p>Manage your finances effectively with our easy-to-use budget tracker.</p>
+    </section>
+
+    <!-- Section 2: Features of the App -->
+    <section id="features">
+      <h3>Features</h3>
+      <ul>
+        <li>Track income and expenses</li>
+        <li>Set financial goals</li>
+        <li>Generate reports</li>
+      </ul>
+    </section>
+
+    <!-- Section 3: Contact Form with improved accessibility features -->
+    <section id="contact">
+      <h3>Contact Us</h3>
+      <form action="/submit" method="POST">
+        <!-- Label and input for Name field -->
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" aria-required="true">
+
+        <!-- Label and input for Email field -->
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" aria-required="true">
+
+        <!-- Label and textarea for Message field -->
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" placeholder="Enter your message" aria-required="true"></textarea>
+
+        <!-- Submit button with aria-label -->
+        <button type="submit" aria-label="Submit your contact form">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer with role attribute -->
+  <footer role="contentinfo">
+    <p>&copy; 2024 Personal Budget App. All rights reserved.</p>
+  </footer>
+</body>
+</html>
 
