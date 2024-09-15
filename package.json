@@ -1,0 +1,32 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "5166 Assignment 3",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Meelad1/personal-budget.git"
+  },
+  "keywords": [
+    "personal",
+    "budget",
+    "finance",
+    "tracking",
+    "nodejs",
+    "express",
+    "chartjs",
+    "d3js"
+  ],
+  "author": "Meelad Doroodchi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Meelad1/personal-budget/issues"
+  },
+  "homepage": "https://github.com/Meelad1/personal-budget#readme",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}

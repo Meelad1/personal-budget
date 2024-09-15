@@ -44,28 +44,71 @@
     <section id="contact">
       <h3>Contact Us</h3>
       <form action="/submit" method="POST">
-        <!-- Label and input for Name field -->
         <label for="name">Your Name</label>
         <input type="text" id="name" name="name" placeholder="Enter your name" aria-required="true">
 
-        <!-- Label and input for Email field -->
         <label for="email">Your Email</label>
         <input type="email" id="email" name="email" placeholder="Enter your email" aria-required="true">
 
-        <!-- Label and textarea for Message field -->
         <label for="message">Your Message</label>
         <textarea id="message" name="message" placeholder="Enter your message" aria-required="true"></textarea>
 
-        <!-- Submit button with aria-label -->
         <button type="submit" aria-label="Submit your contact form">Submit</button>
       </form>
     </section>
+
+    <!-- Pie chart canvas -->
+    <div class="text box">
+      <h1>Budget Chart</h1>
+      <canvas id="myChart" width="200" height="200"></canvas>
+    </div>
   </main>
 
   <!-- Footer with role attribute -->
   <footer role="contentinfo">
     <p>&copy; 2024 Personal Budget App. All rights reserved.</p>
   </footer>
+
+  <!-- Axios and Chart.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+  <script>
+    var data = {
+      datasets: [{
+        data: [], // To be populated dynamically
+        backgroundColor: ['#ffcd56', '#ff6384', '#36a2eb', '#fd6b19', '#4bc0c0', '#9966ff', '#c9cbcf'],
+      }],
+      labels: [] // To be populated dynamically
+    };
+
+    // Function to create the chart
+    function createChart() {
+      var ctx = document.getElementById("myChart").getContext("2d");
+      new Chart(ctx, {
+        type: 'pie',
+        data: data
+      });
+    }
+
+    // Function to get budget data from the server
+    function getBudget() {
+      axios.get('/budget')
+        .then(function(res) {
+          console.log(res.data);  // For debugging purposes
+          for (var i = 0; i < res.data.myBudget.length; i++) {
+            data.datasets[0].data.push(res.data.myBudget[i].budget);
+            data.labels.push(res.data.myBudget[i].title);
+          }
+          createChart();  // Create the chart after getting the data
+        })
+        .catch(function(error) {
+          console.error('Error fetching budget data:', error);
+        });
+    }
+
+    // Call the getBudget function on page load
+    getBudget();
+  </script>
 </body>
 </html>
-
